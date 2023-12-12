@@ -1,0 +1,38 @@
+{
+	"name": "solwee-core/pixt-api",
+	"description": "Pix.T Api",
+	"minimum-stability": "stable",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Solwee solutions s.r.o.",
+			"email": "info@solwee.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Solwee\\Pixt\\": "src/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "http://composer.clapix.com/"
+		}
+	],
+	"autoload-dev": {
+		"psr-4": {
+			"Solwee\\Pixt\\": "tests/"
+		}
+	},
+	"config": {
+		"secure-http": false
+	},
+	"require": {
+		"php": ">=8.2",
+		"guzzlehttp/guzzle": "^7.8"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10.5"
+	}
+}
