@@ -43,12 +43,17 @@ To install latest version of `solwee/pixt-api` use [Composer](https://getcompose
 ### Usage Example
 
 ```php
-$client = new ClientImplementation(); // Assuming ClientImplementation implements ClientInterface
+$client = new Solwee\Pixt\Client(
+  new \GuzzleHttp\Client(),
+    "https://partner.pixt.42cloud.io",
+    "<super secret token>",
+);
 
 // Get a presigned URL for an image upload
 $presignedUrl = $client->getPresignedURL("example.jpg");
 
 // Upload image data to the presigned URL
+$imageData = file_get_contents("example.jpg");
 $status = $client->putToPresignedURL($presignedUrl, $imageData);
 
 // Retrieve the certificate for the image
