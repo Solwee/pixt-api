@@ -1,7 +1,8 @@
 {
-	"name": "solwee-core/pixt-api",
+	"name": "solwee/pixt-api",
 	"description": "Pix.T Api",
 	"minimum-stability": "stable",
+	"type": "library",
 	"license": "proprietary",
 	"authors": [
 		{
