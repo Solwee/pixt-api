@@ -2,7 +2,7 @@
 namespace Solwee\Pixt;
 use Solwee\Pixt\Exceptions\DataErrorException;
 
-class Client
+class Client implements ClientInterface
 {
     private \GuzzleHttp\Client $client;
     private string $serverUrl;
@@ -28,7 +28,7 @@ class Client
                 'Accept' => 'application/json',
                 'Authorization' => sprintf('Bearer %s', $this->bearerToken)
             ], 'json' => [
-                'title' => $imageFileName,
+                'filename' => $imageFileName,
             ]
         ]);
 
@@ -81,8 +81,8 @@ class Client
             $data = json_decode($response->getBody()->getContents(), true);
 
             $aiLabels = [];
-            if(isset($data['data']['rekognition']['iaLabels'])) {
-                foreach ($data['data']['rekognition']['iaLabels'] as $label) {
+            if(isset($data['data']['rekognition']['aiLabels'])) {
+                foreach ($data['data']['rekognition']['aiLabels'] as $label) {
                     $aiLabels[] = $label['label'];
                 }
             }
